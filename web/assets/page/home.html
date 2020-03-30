@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="js js--off" lang='zh-CN' dir="ltr">
+  
+  <head>
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script>//<![CDATA[
+      window.LOCALE = 'zh-cn'
+      //]]>
+      </script>
+    <link rel="stylesheet" media="all" href="/static/css/application-211e132b.css" data-turbolinks-track="reload" />
+    <link rel="stylesheet" media="all" href="/static/css/application-0a2cab25.css" data-turbolinks-track="reload" />
+    <link rel="stylesheet" media="print" href="/static/css/print-9cb18088.css" data-turbolinks-track="reload" />
+    <script type="text/javascript">window.Browser = {
+        mobile: false,
+        ie: false,
+        firefox: false
+      };
+      document.documentElement.className = document.documentElement.className.replace("js--off", "js--on");</script>
+    <script src="/static/js/0-39a661201f112d056a54-1.chunk.js" data-turbolinks-track="reload"></script>
+    <script src="/static/js/1-49ce69aefe2a67542c3c-1.chunk.js" data-turbolinks-track="reload"></script>
+    <script src="/static/js/application-1c5e037e002754c6d518-1.js" data-turbolinks-track="reload"></script>
+    
+  <body class="production webview " data-app="{&quot;currentUser&quot;:null,&quot;locale&quot;:&quot;zh-CN&quot;,&quot;genericError&quot;:&quot;因为某些原因无法操作。\n请再尝试一次&quot;,&quot;login_path&quot;:&quot;/cn/accounts/new&quot;}" data-controller="gallery premium-intercept" data-premium-intercept-cookie="dismissed_premium_intercept" data-premium-intercept-expires="1">
+    <!-- Overlays -->
+    <div id="page">
+      <!-- Header -->
+      <header id="header" data-toggle-class="main-header--show-search-box" class="main-header main-header--home media webview__hidden">
+        <a class="main-header__brand media__img" href="#">
+          <img alt="Cookpad" class="inline" src="/static/images/logo.png" />
+          <img alt="Cookpad" class="main-header__logo-text inline" src="/static/images/logo_text.png" /></a>
+        <div class="header-controls media__img-rev hidden-print" id="action_buttons">
+          <a id="get-started" class="header-controls__item header-controls__item--button btn btn--get-started visible-inline" rel="nofollow" data-toggle="modal" data-target="#modal" href="/cn/accounts/new?via=get_started">开始使用</a></div>
+        <div class="media__body hidden-print main-header__search ">
+          <form class="header-search media form-alternate" autocomplete="off"  action="/search"  method="get">
+            <div class="header-search__action media__img-rev hidden-xs">
+              <button name="commit" type="submit" value="搜索食谱" class="header-search__action__button">
+                <i class="icf icf--search "></i>
+              </button>
+            </div>
+            <div class="header-search__field media__body form-control">
+              <input type="text" name="q" id="navigation_search" placeholder="菜名...."   class="header-search__field__input" />
+              <a data-behavior="clear_input" class="header-search__clear faint" tabindex="-1" href="#navigation_search">
+                <i class="icf icf--close-circle "></i>
+              </a>
+            </div>
+          </form>
+        </div>
+      </header>
+      <!-- Main -->
+      <div>
+        <div class="main-container" id="main" data-controller="source-tracking" data-source-tracking-via="guest_feed">
+          <div class="page-overlay" data-behavior="cancel_search" data-target="#navigation_search"></div>
+          <div id="popup-overlay"></div>
+          <div id="main_contents" class="contents contents--main contents--full-width webview__contents">
+            <div id="splash" class="splash">
+              <div class="splash__brand">
+                <a title="Cookpad" href="/">
+                  <img alt="Cookpad" class="splash__brand__logo inline" src="/static/images/logo_large.png" /></a>
+              </div>
+              <form id="home_search" class="search-widget search-widget--wide media form-alternate"  action="/search" method="get">
+                <div class="splash__search">
+                  <div class="media__img-rev">
+                    <input type="submit"  value="搜索食谱" class="search-widget__btn btn btn-default" /></div>
+                  <div class="search-widget__field media__body">
+                    <input type="text" name="q" id="splash_primary_action" class="search-widget__input form-control" placeholder="材料名，菜名..."  /></div>
+                </div>
+             
+              </form>
+              <div class="text-center splash__cta">
+                <a id="splash_primary_action" class="btn btn-create-recipe btn-create-recipe--large" data-require-login="true" rel="nofollow" data-method="post" href="/cn/recipes">
+                  <i class="icf icf--add-circle "></i>创建新的食谱</a>
+              </div>
+            </div>
+            <div class="page-container p-3">
+              <div>
+                <div class="flexslider" data-controller="slider">
+                  <ul class="slides" data-slides>
+                    <li data-slide-desktop>
+                      <div id="promotional-banner">
+                        <a class="banner"  href="#">
+                          <img   src="/static/images/ads1.jpg" /></a>
+                      </div>
+                    </li>
+                    <li data-slide-mobile>
+                      <div id="promotional-banner">
+                        <a class="banner" href="#">
+                          <img   src="/static/images/ads1.jpg" /></a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div data-controller="infinite-scroll" data-infinite-scroll-buffer="3000">
+
+                <div id="feed_items" class="feed feed--with-top-space masonry masonry--md-3 masonry--sm-2 masonry--xs-1" data-controller="masonry" >
+
+                  <!-- 555-->
+                  <div  class="masonry__item masonry__item--new">
+                   
+                    <div class="card feed__card">
+                      <a  href="#">
+                        <img  class="feed__photo w-full"  src="/static/images/meishi.jpg" /></a>
+                      <div class="feed__actions flex items-end hidden-print">
+                        <span class="feed__cookplan-button">
+                          <div class="cookplan-toggle "  >
+                            <button class="cookplan-button cookplan-toggle__add-to-cookplan"  type="submit">
+                                <i class="icf icf--diary ml-1"></i> 试做该食谱</button>
+                           
+                          </div>
+                        </span>
+                       
+                      </div>
+                      <div class="p-3 feed__body">
+                        <a  href="#">
+                          <div class="media">
+                            <div class="media__body">
+                              <h2 class="feed__title recipe-title break-long-word" dir="auto">柠檬凤爪</h2>
+                              <ul class="flex feed__meta subtle small">
+                                <li>by 作者</li></ul>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                 <!---777--> 
+   
+
+    
+               </div>
+                <div id="feed_pagination" class="pagination" >
+                  <a rel="next" data-action="infinite-scroll#start" href="#">浏览更多</a></div>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+       
+      </div>
+   
+   
+    </div>
+  
+   
+
+    <footer class="page-footer  small page-container p-3 hidden-print webview__hidden links">
+           
+      <div class="page-footer__copyright"> Copyright &copy; 懒人食谱
+       </div>
+    </footer>
+   
+  </body>
+
+</html>
