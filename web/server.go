@@ -81,7 +81,7 @@ func (s *Server) start() error {
 			ctx.JSON(iris.Map{"code": 5, "msg":  err.Error()})
 			return
 		}
-		err = ioutil.WriteFile("/opt2/assets/images/a.png", ddd, 0666)
+		err = ioutil.WriteFile("/home/assets/images/a.png", ddd, 0666)
 		if err != nil {
 			ctx.JSON(iris.Map{"code": 6, "msg":  err.Error()})
 			return

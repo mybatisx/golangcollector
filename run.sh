@@ -4,7 +4,7 @@ git pull origin master
 
 docker build -t lanrenshipu:v1 .
 docker rm -f lanrenshipu
-docker run -d -p 10002:8080 --name lanrenshipu -v /home/assets:/home/assets lanrenshipu:v1
+docker run -d -p 10002:8080 --name lanrenshipu -v /home/github.com/nginx/html:/home/assets lanrenshipu:v1
 
 docker rm -f nginx
 docker run \
