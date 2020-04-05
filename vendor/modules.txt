@@ -21,6 +21,8 @@ github.com/aymerick/raymond
 github.com/aymerick/raymond/ast
 github.com/aymerick/raymond/lexer
 github.com/aymerick/raymond/parser
+# github.com/disintegration/imaging v1.6.2
+github.com/disintegration/imaging
 # github.com/eknkc/amber v0.0.0-20171010120322-cdade1c07385
 github.com/eknkc/amber
 github.com/eknkc/amber/parser
@@ -53,6 +55,9 @@ github.com/iris-contrib/middleware/cors
 github.com/iris-contrib/pongo2
 # github.com/iris-contrib/schema v0.0.1
 github.com/iris-contrib/schema
+# github.com/jmoiron/sqlx v1.2.0
+github.com/jmoiron/sqlx
+github.com/jmoiron/sqlx/reflectx
 # github.com/json-iterator/go v1.1.9
 github.com/json-iterator/go
 # github.com/kataras/golog v0.0.10
@@ -93,6 +98,10 @@ github.com/kennygrant/sanitize
 # github.com/klauspost/compress v1.9.7
 github.com/klauspost/compress/flate
 github.com/klauspost/compress/gzip
+# github.com/lib/pq v1.3.0
+github.com/lib/pq
+github.com/lib/pq/oid
+github.com/lib/pq/scram
 # github.com/microcosm-cc/bluemonday v1.0.2
 github.com/microcosm-cc/bluemonday
 # github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421
@@ -112,6 +121,11 @@ github.com/temoto/robotstxt
 # golang.org/x/crypto v0.0.0-20191227163750-53104e6ec876
 golang.org/x/crypto/acme
 golang.org/x/crypto/acme/autocert
+# golang.org/x/image v0.0.0-20191009234506-e7c1f5e7dbb8
+golang.org/x/image/bmp
+golang.org/x/image/ccitt
+golang.org/x/image/tiff
+golang.org/x/image/tiff/lzw
 # golang.org/x/net v0.0.0-20200320220750-118fecf932d8
 golang.org/x/net/context
 golang.org/x/net/html
@@ -142,6 +156,8 @@ golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
+# golang.org/x/tools v0.0.0-20190606124116-d0a3d012864b
+golang.org/x/tools/go/ssa/interp/testdata/src/errors
 # google.golang.org/appengine v1.6.5
 google.golang.org/appengine/internal
 google.golang.org/appengine/internal/base

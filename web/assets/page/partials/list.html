@@ -1,0 +1,37 @@
+
+
+<div class="layui-container">
+
+    <div class="list">
+     {{range $index, $value := .list}}
+        <div class="layui-col-xs12 layui-col-md3 one">
+            <a href="/cookbook/{{$value.Id}}">
+                <img src="{{$value.Img}}"/>
+                <B>{{$value.Name}}</B>
+            </a>
+        </div>
+
+     {{end}}
+
+</div>
+</div>
+<style>
+    .one {
+        margin-top: 5px;
+    }
+    .list{
+        padding: 20px; background-color: #fafaf4; display:inline-block;
+    }
+    .list img{
+        width: 220px;
+        height: 220px;
+        border: 2px solid #ddd;
+
+        padding: 5px;
+
+        background: #F2F2F2;
+
+
+    }
+    .list b{ display: block;}
+</style>

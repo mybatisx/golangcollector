@@ -1,9 +1,17 @@
 package main
 
+import (
+	"cookbook/global"
+)
+
 func main() {
 
+
+
 	ch := make(chan struct{})
-	MyGlobal().Server.Run()
+	global.MyGlobal().Server.Run()
 	ch <- struct{}{}
-	MyGlobal().Box.Run()
+	//imgUrl:=collector.UploadImg("http://img2.bdstatic.com/img/image/166314e251f95cad1c8f496ad547d3e6709c93d5197.jpg")
+	//log.Printf(imgUrl)
+	//MyGlobal().Box.Run()
 }

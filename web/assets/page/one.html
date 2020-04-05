@@ -1,168 +1,50 @@
-<!DOCTYPE html>
-<html class="js js--off" lang='zh-CN' dir="ltr">
 
-<head>
-    <title></title>
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <script>//<![CDATA[
-        window.LOCALE = 'zh-cn'
-        //]]>
-    </script>
-    <link rel="stylesheet" media="all" href="/static/css/application-211e132b.css" data-turbolinks-track="reload"/>
-    <link rel="stylesheet" media="all" href="/static/css/application-0a2cab25.css" data-turbolinks-track="reload"/>
-    <link rel="stylesheet" media="print" href="/static/css/print-9cb18088.css" data-turbolinks-track="reload"/>
-
-    <script src="/static/js/0-39a661201f112d056a54-1.chunk.js" data-turbolinks-track="reload"></script>
-    <script src="/static/js/1-49ce69aefe2a67542c3c-1.chunk.js" data-turbolinks-track="reload"></script>
-    <script src="/static/js/application-1c5e037e002754c6d518-1.js" data-turbolinks-track="reload"></script>
-
-<body class="production webview ">
-<!-- Overlays -->
-<div id="page">
-    <!-- Header -->
-    <header id="header" data-toggle-class="main-header--show-search-box" class="main-header  media webview__hidden">
-        <a class="main-header__brand media__img" href="#">
-            <img alt="Cookpad" class="inline" src="/static/images/logo_circle.png"/>
-            <img alt="Cookpad" class="main-header__logo-text inline" src="/static/images/logo_text-2.png"/></a>
-        <div class="header-controls media__img-rev hidden-print" id="action_buttons">
-            <a id="get-started"
-               class="header-controls__item header-controls__item--button btn btn--get-started visible-inline"
-               rel="nofollow" data-toggle="modal" data-target="#modal" href="/cn/accounts/new?via=get_started">开始使用</a>
-        </div>
-        <div class="media__body hidden-print main-header__search ">
-            <form class="header-search media form-alternate" action="#?id=56" method="get">
-                <div class="header-search__action media__img-rev hidden-xs">
-                    <button name="button" type="submit" title="搜索食谱" class="header-search__action__button">
-                        <i class="icf icf--search "></i>
-                    </button>
+<div class="layui-container">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+            <legend>{{.name}}</legend>
+          </fieldset>   
+           
+          <div style="padding: 20px; background-color: #F2F2F2;">
+            <div class="layui-row layui-col-space15">
+              <div class="layui-col-md4">
+                <div class="layui-card">
+                
+                  <div class="layui-card-body">
+                    <img src="{{.img}}"/>
+                  </div>
                 </div>
-                <div class="header-search__field media__body form-control">
-                    <input type="text" name="q" id="navigation_search" placeholder="材料名，菜名..."
-                           class="header-search__field__input"/>
-                    <a data-behavior="clear_input" class="header-search__clear faint" tabindex="-1"
-                       href="#navigation_search">
-                        <i class="icf icf--close-circle "></i>
-                    </a>
+              </div>
+              <div class="layui-col-md8">
+                <div class="layui-card">
+                  <div class="layui-card-header">材料</div>
+                  <div class="layui-card-body">
+                    {{.material}}
+                  </div>
                 </div>
-            </form>
-        </div>
-    </header>
-    <!-- Main -->
-    <div>
-        <div class="main-container" id="main" >
-            <div id="main_contents" class="contents contents--main contents--full-width-print webview__contents">
-                <div class="document">
-                    <div id="recipe_main" class="recipe-show document__panel">
-                        <div class="card card--borderless" >
-                            <div id="editor" class="editor paywalled">
-                                <div id="about">
-                                    <div id="about_recipe_11810228" >
-                                        <div id="recipe_image" class="recipe-show__image image" >
-                                            <a  href="#">
-                                                <div class="tofu_image"  style="padding-top: 70.83888149134488%; background: url(/static/images/placeholder.gif) 0/100%;">
-                                                    <img  width="751" height="532"  src="https://img.cookpadchina.com/steps/5fe64113eea60234/154x116cq70/春日缤纷美食干炸鸡块-食谱步骤-3-图片.jpg"/>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <section class="intro-container document__section">
-                                            <h1 class="recipe-show__title recipe-title strong field-group--no-container-xs">#春日缤纷美食#干炸鸡块</h1>
-                                            <div  class="field-group--no-container-xs">
-                                                <div class="recipe-show__story prose break-long-word links">
-                                                    <p class="mb-2">
-                                                        这厮测试。</p>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    </div>
-                                </div>
+              </div>
+              <div class="layui-col-md12">
+                <div class="layui-card">
+                  <div class="layui-card-header">详细步骤</div>
+                  <div class="layui-card-body">
+                    <div class="step">
 
-                                <section id="ingredients" class="ingredients-container recipe-show__list-data document__section border-b border-gray-500">
-                                    <div class="document__title-container split-header">
-                                        <h2 class="document__title split-header__main">食材</h2>
+                        {{.content}}
 
-                                    </div>
-                                    <div class="ingredient-list card-sm">
-                                        <ol class="list-unstyled ingredient-list__contents">
-                                            <li class="ingredient ">
-                                                <div class="field-group--ingredient">
-                                                    <div class="ingredient__details">鸡胸肉一块  </div>
-                                                </div>
-                                            </li>
-
-                                        </ol>
-                                    </div>
-                                </section>
-
-                                <section id="steps" class="steps-container recipe-show__list-data document__section">
-                                    <div class="document__title-container split-header">
-                                        <h2 class="document__title split-header__main">步骤</h2>
-
-                                    </div>
-                                    <ol class="numbered-list">
-
-                                        <li class="step numbered-list__item card-sm" >
-                                            <div>
-                                                <div class="numbered-list__contents">
-                                                    <div class="step__description">
-                                                        <div class="prose">
-                                                            <div> <p class="mb-2">腌制好的鸡块裹满干淀粉</p></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="step-image">
-                                                        <div class="step-image__container image">
-                                                            <div>
-                                                                <a  href="#">
-                                                                    <div class="tofu_image" style="padding-top: 75.32467532467533%; background: url(/static/images/placeholder.gif) 0/100%;">
-                                                                        <img width="154" height="116" src="https://img.cookpadchina.com/steps/5fe64113eea60234/154x116cq70/春日缤纷美食干炸鸡块-食谱步骤-3-图片.jpg"/>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                    </ol>
-
-                                </section>
-                            </div>
-                        </div>
                     </div>
-
-                    <div class="document__panel hidden-print break-long-word">
-                        <div class="recipe-media">
-                            <div class="recipe-media__section">
-                                <h4 class="text-center font-black p-3 recipe-media__title recipe-media__title--small">
-                                    更多食谱</h4>
-                                <div data-controller="masonry source-tracking" class="masonry masonry--sm-2">
-                                    <div class="feed masonry__item masonry__item--new card">
-                                        <a href="#">
-                                            <img alt="凉拌莜面条" class="feed__photo w-full" width="298" height="223"
-                                                 src="https://img.cookpadchina.com/steps/5fe64113eea60234/154x116cq70/春日缤纷美食干炸鸡块-食谱步骤-3-图片.jpg"/></a>
-                                        <div class="p-3">
-                                            <a  href="#">
-                                                <h2 class="feed__title recipe-title font-black">凉拌莜面条</h2>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div> 
 
-        </div>
+   </div>
 
-    </div>
-</div>
 
-</body>
+{{render "partials/list.html"}}
+<style>
 
-</html>
+ .layui-card-body img {
+    width: 220px;
+    height: 220px;
+  }
+</style>
