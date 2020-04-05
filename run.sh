@@ -9,7 +9,7 @@ docker run -d -p 10002:8080 --name lanrenshipu -v /home/assets:/home/assets lanr
 docker rm -f nginx
 docker run \
   --name nginx \
-  -d -p 81:80 \
+  -d -p 80:80 \
   -v /home/github.com/nginx/html:/usr/share/nginx/html \
   -v /home/github.com/nginx/nginx.conf:/etc/nginx/nginx.conf:ro \
   -v /home/github.com/nginx/conf.d:/etc/nginx/conf.d \
