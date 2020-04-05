@@ -44,8 +44,8 @@ func ResizeImg(path5 string) string {
 		log.Fatalf("failed to open image: %v", err)
 	}
 	destinationFile := fmt.Sprintf("/Users/ming/mingtemp/images/%d.%s", id, ext)
-	if src.Bounds().Max.X > 220 {
-		src = imaging.Resize(src, 220, 0, imaging.Lanczos)
+	if src.Bounds().Max.X > 400 {
+		src = imaging.Resize(src, 400, 0, imaging.Lanczos)
 		imaging.Save(src, destinationFile)
 	} else {
 		input, err := ioutil.ReadFile(path5)
@@ -86,10 +86,10 @@ func ResizeImg(path5 string) string {
 	}
 	defer resp.Body.Close()
 
-	fmt.Println("status", resp.Status)
-	fmt.Println("response:", resp.Header)
-	body, _ := ioutil.ReadAll(resp.Body)
-	fmt.Println("response Body:", string(body))
+	//fmt.Println("status", resp.Status)
+	//fmt.Println("response:", resp.Header)
+	//body, _ := ioutil.ReadAll(resp.Body)
+	//fmt.Println("response Body:", string(body))
 	///
 
 	///
@@ -99,6 +99,9 @@ func ResizeImg(path5 string) string {
 	return fmt.Sprintf("//asset.lanrenshipu.cn/images/%d.%s", id, ext)
 }
 func UploadImg(src string) string {
+	if strings.Contains(src,"690x390_"){
+		src= strings.Replace(src,"690x390_","400x266_",1)
+	}
 	imgPath := "/Users/ming/mingtemp/pk/"
 	imgUrl := src
 

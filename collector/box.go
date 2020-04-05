@@ -39,6 +39,17 @@ func (*Box) Run() {
 		match, _ := regexp.MatchString(`/cookbook/(\d+).html`, strings.TrimSpace(r.URL.String()))
 		if match {
 
+			db := db2.GetDb().Conn
+
+			var id2 int
+
+			db.QueryRow(`select id from shipu where key=$1 limit 1`, r.URL.String()).Scan(&id2)
+
+			if id2 > 0 {
+				fmt.Printf("已经存在 ： %s",r.URL.String())
+				return
+			}
+
 			res, err := http.Get(r.URL.String())
 			if err != nil {
 				log.Fatal(err)
@@ -88,20 +99,21 @@ func (*Box) Run() {
 			})
 			cookInfo.Material = sb.String()
 			sb2 := strings.Builder{}
-			sb2.WriteString(`<div class="step">`)
+			//sb2.WriteString(`<div class="step">`)
 			step := make(map[string]string)
 			doc.Find("#left .step  .stepcont").Each(func(i int, s *goquery.Selection) {
 				// For each item found, get the band and title
-				sb2.WriteString(`<div class="stepcont clearfix">`)
+				sb2.WriteString(`<div>`)
 				imgstep, _ := s.Find("img").Attr("src")
 				img := UploadImg(strings.TrimSpace(imgstep))
 				text, _ := s.Find(".stepinfo").Html()
-				sb2.WriteString(`<div class="info">` + strings.TrimSpace(text) + `</div>`)
-				sb2.WriteString(`</div>`)
+				sb2.WriteString(`<b>` + strings.TrimSpace(text) + `</b>`)
+
 				sb2.WriteString(fmt.Sprintf(`<img alt="%s 第%d步" src="%s"/>`,cookInfo.Name,i,img))
+				sb2.WriteString(`</div>`)
 				step[strings.TrimSpace(text)] = strings.TrimSpace(imgstep)
 			})
-			sb2.WriteString("</div>")
+			//sb2.WriteString("</div>")
 			cookInfo.Content = sb2.String()
 
 			bf := bytes.NewBuffer([]byte{})
@@ -112,11 +124,11 @@ func (*Box) Run() {
 
 			fmt.Print("----------------------------------------------------------------------------")
 
-			db := db2.GetDb().Conn
+
 
 			var id int
 
-			err = db.QueryRow(`select * from shipu where id=$1 limit 1`, id).Scan(&id)
+			err = db.QueryRow(`select id from shipu where key=$1 limit 1`, cookInfo.Key).Scan(&id)
 
 			if id == 0 {
 				err = db.QueryRow(`insert into shipu (name,brief,img,material,content,key)

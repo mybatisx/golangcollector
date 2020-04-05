@@ -9,7 +9,7 @@
               <div class="layui-col-md4">
                 <div class="layui-card">
                 
-                  <div class="layui-card-body">
+                  <div class="layui-card-body im">
                     <img src="{{.img}}"/>
                   </div>
                 </div>
@@ -25,7 +25,7 @@
               <div class="layui-col-md12">
                 <div class="layui-card">
                   <div class="layui-card-header">详细步骤</div>
-                  <div class="layui-card-body">
+                  <div class="layui-card-body2">
                     <div class="step">
 
                         {{.content}}
@@ -43,8 +43,9 @@
 {{render "partials/list.html"}}
 <style>
 
+   .im {text-align: center;}
  .layui-card-body img {
     width: 220px;
-    height: 220px;
+    height: auto;
   }
 </style>
