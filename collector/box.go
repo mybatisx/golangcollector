@@ -85,15 +85,15 @@ func (*Box) Run() {
 			cookInfo.Name = strings.TrimSpace(title)
 			cookInfo.Brief = strings.TrimSpace(jianjie)
 			sb := strings.Builder{}
-			mater := make(map[string]string)
+			//mater := make(map[string]string)
 			doc.Find("#left .retamr  td").Each(func(i int, s *goquery.Selection) {
 				// For each item found, get the band and title
 				scname := s.Find(".scname").Text()
 				scnum := s.Find(".scnum").Text()
-				sb.WriteString("<b>" + strings.TrimSpace(scname) + "<b/>")
-				sb.WriteString("<i>" + strings.TrimSpace(scnum) + "<i/>")
+
 				if strings.TrimSpace(scname) != "" {
-					mater[strings.TrimSpace(scname)] = strings.TrimSpace(scnum)
+					sb.WriteString("<b>" + strings.TrimSpace(scname) + "</b>")
+					sb.WriteString("<i>" + strings.TrimSpace(scnum) + "</i>")
 				}
 
 			})

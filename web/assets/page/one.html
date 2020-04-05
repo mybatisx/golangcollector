@@ -17,7 +17,7 @@
               <div class="layui-col-md8">
                 <div class="layui-card">
                   <div class="layui-card-header">材料</div>
-                  <div class="layui-card-body">
+                  <div class="layui-card-body cailiao">
                     {{.material}}
                   </div>
                 </div>
@@ -48,4 +48,27 @@
     width: 220px;
     height: auto;
   }
+    .cailiao i{
+        padding-left: 10px;
+    }
+    .step{
+        margin: 10px;
+    }
+   .step p{
+       display: inline-block;
+   }
+    .step img{
+        display: block;
+    }
 </style>
+<script>
+
+    layui.use(['jquery'], function(){
+        var $ = layui.$
+        $(".cailiao i").each(function(){
+            $(this).append("<p></p>")
+        });
+    });
+</script>
+
+
