@@ -93,7 +93,7 @@ func (s *Server) start() error {
 	return nil
 }
 func getRandomRows(count int32) []collector.CookInfo {
-	list := make([]collector.CookInfo, count)
+	list := make([]collector.CookInfo, 4)
 	sql2 := fmt.Sprintf(`SELECT id, name,img,material,brief,content  from shipu order by random() LIMIT %d `, count)
 	rows, err := db2.GetDb().Conn.Query(sql2)
 	if err != nil {

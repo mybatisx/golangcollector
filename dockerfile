@@ -15,6 +15,7 @@ RUN cd /opt2 && go build -o myapp  /opt2
 
 # final stage
 FROM golang:alpine
+ENV WHOAMI  ALIYUN
 EXPOSE 8080
 RUN  mkdir /opt3
 WORKDIR /opt3
