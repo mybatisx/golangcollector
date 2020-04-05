@@ -3,6 +3,7 @@ package collector
 import (
 	"bytes"
 	"database/sql"
+	"encoding/base64"
 	"fmt"
 	"github.com/disintegration/imaging"
 	"golang.org/x/tools/go/ssa/interp/testdata/src/errors"
@@ -59,7 +60,39 @@ func ResizeImg(path5 string) string {
 
 	}
 	err = os.Remove(path5)
+///
+	fileName := fmt.Sprintf(`%d.%s`,id,ext)
+	data, err := ioutil.ReadFile(destinationFile)
+	if err != nil {
+		panic(err)
+	}
+	base64Str := base64.StdEncoding.EncodeToString(data)
+	post := fmt.Sprintf(`{
+		"name":"%s",
+        "base64Str":"%s"
+	}`,fileName,base64Str)
 
+
+	var jsonStr = []byte(post)
+
+	req, err := http.NewRequest("POST", "HTTP://www.lanrenshipu.cn/upload", bytes.NewBuffer(jsonStr))
+	// req.Header.Set("X-Custom-Header", "myvalue")
+	req.Header.Set("Content-Type", "application/json")
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil{
+		panic(err)
+	}
+	defer resp.Body.Close()
+
+	fmt.Println("status", resp.Status)
+	fmt.Println("response:", resp.Header)
+	body, _ := ioutil.ReadAll(resp.Body)
+	fmt.Println("response Body:", string(body))
+	///
+
+	///
 	if err != nil {
 		log.Panic(err.Error())
 	}
