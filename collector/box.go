@@ -144,7 +144,7 @@ func (*Box) Run() {
 
 				fmt.Printf("已经存在 %s", cookInfo.Key)
 			}
-
+time.Sleep(60*time.Second)
 			fmt.Print("----------------------------------------------------------------------------")
 		}
 
