@@ -1,0 +1,252 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font: 12px Tahoma,Geneva,"Microsoft Yahei";
+    background: #fafaf5;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #c0c4cc;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #c0c4cc;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: #c0c4cc;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #c0c4cc;
+}
+
+.header{
+    zoom: 1;
+    overflow: visible;
+    box-shadow: 0 0.5px 2px 0 rgba(0,0,0,.3);
+    background-color: #fff;
+
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+.heardrow1{
+    height: 60px;
+
+}
+
+.heardrow1 .logo{
+
+    margin-left: 20px;
+}
+/* 大搜索框*/
+div.search {padding: 30px 0;}
+.search form {
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+}
+input, button {
+    border: none;
+    outline: none;
+}
+.search input {
+    width: 100%;
+    height: 52px;
+    padding-left: 13px;
+}
+.search button {
+    height: 52px;
+    width: 52px;
+    cursor: pointer;
+    position: absolute;
+}
+/*搜索框1*/
+.bar1 { }
+.bar1 input {
+    border: 1px solid #e7e5df;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 135%!important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.bar1 input:HOVER{
+    -webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;
+    border-color:#ff9933;
+    -webkit-box-shadow:0 0 18px #FFB800;
+}
+.bar1 button {
+    top: 0;
+    right: 0;
+    background: #e7e5df;
+    border-radius: 0 5px 5px 0;
+}
+.searchbt {
+   font-weight: 700;
+    font-size: 25px;
+    color: #7b7769;
+}
+
+/* 大搜索框结束*/
+/*小搜索框开始*/
+
+.search2 form {
+position: relative;
+    width: 70%;
+
+}
+
+.search2 input {
+    width: 100%;
+    height: 38px;
+    padding-left: 10px;
+}
+.search2 button {
+    height: 38px;
+    width: 38px;
+    cursor: pointer;
+    position: absolute;
+}
+/*搜索框1*/
+.bar2 {margin-top: 10px;}
+.bar2 input {
+    border: 2px solid #e7e5df;
+    border-radius: 5px;
+    background: #fff;
+}
+.bar2 button {
+    top: 0;
+    right: 0;
+    background: #e7e5df;
+    border-radius: 0 5px 5px 0;
+}
+.searchbt2 {
+    font-weight: 500;
+    font-size: 20px;
+    color: #7b7769;
+}
+
+.waterfall {
+    width: 80%;
+    column-gap:10px;
+    column-count: 4;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #333;
+
+}
+.card {
+    padding: 10px;
+    margin-bottom: 10px;
+    break-inside: avoid;
+    background-color: #fff;
+border-radius: .25rem;
+border-width: 1px;
+border-color: #dadac9;
+box-shadow: 0 1px 5px rgba(0,0,0,.1)
+}
+.card img {
+    width: 100%;
+    height:auto;
+    border-radius: 4px 4px 4px 4px;
+    min-height: 100px;
+}
+.card  p {
+    padding-top: 0px;margin-top: 5px; margin-bottom: 0px;
+    text-align: center;
+}
+@media (min-width: 992px) and (max-width: 1300px) {
+    .waterfall {
+        column-count: 4;
+    }
+    .card   p {
+      
+       color: #333;
+
+    }
+    .logo img{
+        width: 100%; max-width: 140px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .waterfall {
+        column-count: 2;
+    }
+    .card  p {
+        color: orange;
+    }
+    .cl{ margin-top: 30px;}
+    .logo img{
+        width: 100%;
+    }
+}
+@media (max-width: 767px) {
+    .waterfall {
+        column-count: 1;
+    }
+    .logo img{
+        width: 100%;
+    }
+    .cl{ margin-top: 30px;}
+    .search2 form{
+        width: 100%;
+    }
+    .search form{
+        width: 85%;
+    }
+}
+
+
+.ads1{
+    text-align: center;
+    
+}
+.ads1 img {
+    width: 82%; 
+}
+.container{width: 80%}
+.buzou{ margin-top: 30px;}
+.pd0{padding: 0px;height: 100%}
+.list-group-item{    padding: 0rem 0rem;}
+
+
+.step{
+    margin: 10px;
+    font-size: 15px;
+    color: #333;
+    line-height: 20px;
+}
+
+.step b p{
+    display: block; height:6px;  color: tomato;
+}
+.step div{
+   margin-bottom: 20px;
+}
+.step img{
+    display: block; max-width: 200px;
+}
+.title{margin-top: 20px; height: 55px;}
+.shipuimg img{width: 100%; max-height: 380px;}
+#cailiao li{
+    border-style: dashed;
+    border-color: #e7e5df;
+    line-height: 30px;
+}
+#cailiao li b{
+    text-align: left; display: block; padding-left: 10px;
+}
+#cailiao li b i{
+    text-align: right;  padding-left: 15px;
+    color: #9F9F9F;
+}

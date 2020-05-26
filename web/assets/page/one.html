@@ -1,73 +1,79 @@
+<div class="header">
 
-<div class="layui-container">
-        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-            <legend>{{.name}}</legend>
-          </fieldset>   
-           
-          <div style="padding: 20px; background-color: #F2F2F2;">
-            <div class="layui-row layui-col-space15">
-              <div class="layui-col-md4">
-                <div class="layui-card">
-                
-                  <div class="layui-card-body im">
-                    <img src="{{.img}}"/>
-                  </div>
-                </div>
-              </div>
-              <div class="layui-col-md8">
-                <div class="layui-card">
-                  <div class="layui-card-header">材料</div>
-                  <div class="layui-card-body cailiao">
-                    {{.material}}
-                  </div>
-                </div>
-              </div>
-              <div class="layui-col-md12">
-                <div class="layui-card">
-                  <div class="layui-card-header">详细步骤</div>
-                  <div class="layui-card-body2">
-                    <div class="step">
+    <div class="row align-items-center heardrow1 ">
+        <div class="col-3 ">
+            <div class="logo">
+                <a href="/"><img   src="/static/images/logo.png"></a></div>
+        </div>
 
-                        {{.content}}
-
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div class="col-9" >
+            <div class="search2 bar2">
+                <form>
+                    <input type="text" placeholder="搜索菜谱、菜单、食材...">
+                    <button type="submit">
+                        <svg class="bi bi-search searchbt2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                </form>
             </div>
-          </div> 
+        </div>
+    </div>
+</div>
+<div class="container">
+        
 
-   </div>
+  <div class="detail">
+      <div class="row title">
+          <div class="col text-center">
+          <h2>{{.name}}</h2>
+          </div>
 
+      </div>
+      <div class="row">
+
+          <div class="col-lg-6 col-sm-12 shipuimg">
+
+              <img src="{{.img}}" class="shadow p-2 mb-0 bg-white rounded mx-auto d-block" alt="{{.name}}" title="{{.name}}"/>
+
+          </div>
+          <div class="col-lg-6 col-sm-12 cl">
+              <div class="card pd0" >
+                  <div class="card-header">
+                      食材：
+                  </div>
+                  <ul class="list-group list-group-flush " id="cailiao">
+
+                      {{.material}}
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <div class="row shadow-lg p-3 mb-5 bg-white rounded buzou" >
+
+          <div class="col text-left step">
+              {{.content}}
+          </div>
+
+      </div>
+  </div>
+
+</div>
 
 {{render "partials/list.html"}}
-<style>
 
-   .im {text-align: center;}
- .layui-card-body img {
-    width: 220px;
-    height: auto;
-  }
-    .cailiao i{
-        padding-left: 10px;
-    }
-    .step{
-        margin: 10px;
-    }
-   .step p{
-       display: inline-block;
-   }
-    .step img{
-        display: block;
-    }
-</style>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
-    layui.use(['jquery'], function(){
-        var $ = layui.$
-        $(".cailiao i").each(function(){
-            $(this).append("<p></p>")
+    $(function(){
+        var fruits = [];
+        $("#cailiao b").each(function(){
+            fruits.push('<li class="list-group-item">'+$(this).prop("outerHTML")+'</li>')
         });
+
+        $("#cailiao").html(fruits.join(" "));
     });
 </script>
 

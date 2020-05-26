@@ -88,12 +88,11 @@ func (*Box) Run() {
 			//mater := make(map[string]string)
 			doc.Find("#left .retamr  td").Each(func(i int, s *goquery.Selection) {
 				// For each item found, get the band and title
-				scname := s.Find(".scname").Text()
-				scnum := s.Find(".scnum").Text()
+				scname := strings.TrimSpace(s.Find(".scname").Text())
+				scnum := strings.TrimSpace(s.Find(".scnum").Text())
 
-				if strings.TrimSpace(scname) != "" {
-					sb.WriteString("<b>" + strings.TrimSpace(scname) + "</b>")
-					sb.WriteString("<i>" + strings.TrimSpace(scnum) + "</i>")
+				if scname != "" {
+					sb.WriteString(fmt.Sprintf("<b>%s<i>%s</i></b>",scname,scnum))
 				}
 
 			})

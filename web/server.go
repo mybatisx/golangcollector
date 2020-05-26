@@ -20,19 +20,14 @@ type Server struct {
 func (s *Server) start() error {
 	app := iris.New()
 	app.Logger().SetLevel("debug")
-
 	app.UseGlobal(cors.AllowAll())
-
 	app.HandleDir("/static", "./web/assets")
-
 	//app.HandleDir("/page", "./assets/page")
-
 	tmpl := iris.HTML("./web/assets/page", ".html").Layout("layout.html")
 	tmpl.Reload(true)
 	app.RegisterView(tmpl)
 	app.Get("/", func(ctx iris.Context) {
-
-		list := getRandomRows(20)
+		list := getRandomRows(20,``)
 		ctx.ViewData("list", list)
 		ctx.ViewData("title","懒人食谱_菜谱_菜谱大全_优质美食社区")
 		ctx.ViewData("keywords","菜谱,菜谱大全,菜谱做法,家常菜,食谱,美食,懒人食谱")
@@ -54,7 +49,7 @@ func (s *Server) start() error {
 		ctx.ViewData("keywords",name+"详细做法_图解视频_懒人食谱")
 		ctx.ViewData("desc",name+"详细做法_图解视频_视频步骤_懒人食谱")
 
-		list := getRandomRows(4)
+		list := getRandomRows(4,``)
 		ctx.ViewData("list", list)
 		ctx.ViewData("name", name)
 		ctx.ViewData("brief", brief)
@@ -66,6 +61,30 @@ func (s *Server) start() error {
 			ctx.Writef(err.Error())
 		}
 	})
+
+	app.Get("/search/{name:string}", func(ctx iris.Context) {
+		name0 := ctx.Params().GetStringDefault("name","")
+
+		var name, brief, content, img, material string
+
+		ctx.ViewData("title",name0+"怎么做_好吃__详细_图文_视频_步骤_家庭版_懒人食谱")
+		ctx.ViewData("keywords",name0+"详细做法_图解视频_懒人食谱")
+		ctx.ViewData("desc",name0+"详细做法_图解视频_视频步骤_懒人食谱")
+
+		list := getRandomRows(20,name0)
+		ctx.ViewData("list", list)
+		ctx.ViewData("name", name)
+		ctx.ViewData("keyword",name0)
+		ctx.ViewData("brief", brief)
+		ctx.ViewData("img", img)
+		ctx.ViewData("material", template.HTML(material))
+		ctx.ViewData("content", template.HTML(content))
+		if err := ctx.View("search.html", ); err != nil {
+			ctx.StatusCode(iris.StatusInternalServerError)
+			ctx.Writef(err.Error())
+		}
+	})
+
 
 
 	app.Post("/upload", func(ctx iris.Context) {
@@ -92,9 +111,14 @@ func (s *Server) start() error {
 	app.Listen("0.0.0.0:" + strconv.Itoa(s.Port))
 	return nil
 }
-func getRandomRows(count int32) []collector.CookInfo {
+func getRandomRows(count int32,keyword string) []collector.CookInfo {
 	list := make([]collector.CookInfo, 0)
 	sql2 := fmt.Sprintf(`SELECT id, name,img,material,brief,content  from shipu order by random() LIMIT %d `, count)
+	if keyword != ``{
+		sql2 = fmt.Sprintf(`SELECT id, name,img,material,brief,content  from shipu where name like '%s' LIMIT %d `, "%" + keyword + "%", count)
+
+	}
+
 	rows, err := db2.GetDb().Conn.Query(sql2)
 	if err != nil {
 		log2.Print(err.Error())
