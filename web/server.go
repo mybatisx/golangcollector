@@ -29,9 +29,9 @@ func (s *Server) start() error {
 	app.Get("/", func(ctx iris.Context) {
 		list := getRandomRows(20,``)
 		ctx.ViewData("list", list)
-		ctx.ViewData("title","懒人食谱_菜谱_菜谱大全_优质美食社区")
-		ctx.ViewData("keywords","菜谱,菜谱大全,菜谱做法,家常菜,食谱,美食,懒人食谱")
-		ctx.ViewData("desc","懒人食谱是最优质的美食菜谱社区,提供各种菜谱大全,食谱大全,家常菜做法大全,丰富的菜谱大全可以让您轻松地学会怎么做美食,展现自己的高超厨艺,开启美好生活！")
+		ctx.ViewData("title","豆饼网_菜谱_菜谱大全_食谱美食")
+		ctx.ViewData("keywords","菜谱,菜谱大全,菜谱做法,家常菜,食谱,美食,豆饼网食谱")
+		ctx.ViewData("desc","豆饼网是最优质的美食菜谱,提供各种菜谱大全,食谱大全,家常菜做法大全,丰富的菜谱大全可以让您轻松地学会怎么做美食,展现自己的高超厨艺,开启美好生活！")
 		if err := ctx.View("index.html"); err != nil {
 			ctx.StatusCode(iris.StatusInternalServerError)
 			ctx.Writef(err.Error())
@@ -67,9 +67,9 @@ func (s *Server) start() error {
 
 		var name, brief, content, img, material string
 
-		ctx.ViewData("title",name0+"怎么做_好吃__详细_图文_视频_步骤_家庭版_懒人食谱")
-		ctx.ViewData("keywords",name0+"详细做法_图解视频_懒人食谱")
-		ctx.ViewData("desc",name0+"详细做法_图解视频_视频步骤_懒人食谱")
+		ctx.ViewData("title",name0+"怎么做_好吃__详细_图文_视频_步骤_家庭版_豆饼网")
+		ctx.ViewData("keywords",name0+"详细做法_图解视频_豆饼网")
+		ctx.ViewData("desc",name0+"详细做法_图解视频_视频步骤_豆饼网")
 
 		list := getRandomRows(20,name0)
 		ctx.ViewData("list", list)
