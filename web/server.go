@@ -7,6 +7,8 @@ import (
 	"fmt"
 	"github.com/iris-contrib/middleware/cors"
 	"github.com/kataras/iris/v12"
+	"strings"
+
 	"html/template"
 	"io/ioutil"
 	log2 "log"
@@ -37,11 +39,12 @@ func (s *Server) start() error {
 			ctx.Writef(err.Error())
 		}
 	})
-	app.Get("/cookbook/{id:int64}", func(ctx iris.Context) {
-		id, _ := ctx.Params().GetInt64("id")
-
+	app.Get("/cookbook/{id:string regexp(^[0-9]{1,10}\\.html)}", func(ctx iris.Context) {
+		idStr:= ctx.Params().GetStringDefault("id","")
+		idStr= strings.Replace(idStr,".html","",1)
+		id,err:=strconv.Atoi(idStr)
 		var name, brief, content, img, material string
-		err := db2.GetDb().Conn.QueryRow(`select name,brief,content,img,material  from shipu where id= $1`, id).
+		err = db2.GetDb().Conn.QueryRow(`select name,brief,content,img,material  from shipu where id= $1`, id).
 			Scan(&name, &brief, &content, &img, &material)
 
 		print(err)
