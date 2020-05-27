@@ -96,7 +96,7 @@ func ResizeImg(path5 string) string {
 	if err != nil {
 		log.Panic(err.Error())
 	}
-	return fmt.Sprintf("//asset.lanrenshipu.cn/images/%d.%s", id, ext)
+	return fmt.Sprintf("//asset.doubing.net/images/%d.%s", id, ext)
 }
 func UploadImg(src string) string {
 	if strings.Contains(src,"690x390_"){
