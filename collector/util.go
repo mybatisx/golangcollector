@@ -75,7 +75,7 @@ func ResizeImg(path5 string) string {
 
 	var jsonStr = []byte(post)
 
-	req, err := http.NewRequest("POST", "HTTP://www.lanrenshipu.cn/upload", bytes.NewBuffer(jsonStr))
+	req, err := http.NewRequest("POST", "HTTP://doubing.net/upload", bytes.NewBuffer(jsonStr))
 	// req.Header.Set("X-Custom-Header", "myvalue")
 	req.Header.Set("Content-Type", "application/json")
 

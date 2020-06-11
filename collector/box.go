@@ -7,19 +7,44 @@ import (
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gocolly/colly/v2"
-	"log"
+	_ "github.com/lib/pq"
+	 "log"
 	"net/http"
 	"regexp"
 	"strings"
 	"time"
-
-	_ "github.com/lib/pq"
 )
 
 type Box struct {
 }
 
+func pushbaidu()  {
+	list := make([]int, 0)
+	sql2 := fmt.Sprintf(`SELECT id from shipu order by id `)
+
+
+	rows, err := db2.GetDb().Conn.Query(sql2)
+	if err != nil {
+		log.Print(err.Error())
+		return
+	}
+
+	for rows.Next() {
+		id  :=0
+		rows.Scan(&id)
+		list = append(list, id)
+		fmt.Printf("http://www.doubing.net/cookbook/%d.html",id)
+		fmt.Print("\r\n")
+	}
+	return
+
+}
+
 func (*Box) Run() {
+
+
+
+
 	c := colly.NewCollector()
 
 	// Find and visit all links
@@ -143,11 +168,11 @@ func (*Box) Run() {
 
 				fmt.Printf("已经存在 %s", cookInfo.Key)
 			}
-time.Sleep(60*time.Second)
+             time.Sleep(60*time.Second)
 			fmt.Print("----------------------------------------------------------------------------")
 		}
 
 	})
 
-	c.Visit("https://www.douguo.com/ingredients/%E9%BB%84%E7%93%9C")
+	c.Visit("https://www.douguo.com/caipu/%E6%B8%85%E7%83%AD%E5%8E%BB%E7%81%AB")
 }
